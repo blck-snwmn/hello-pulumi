@@ -12,8 +12,10 @@ import (
 func main() {
 	accountID := os.Getenv("CF_ACCOUNT_ID")
 	pulumi.Run(func(ctx *pulumi.Context) error {
+		// This configures the AWS provider to use the Cloudflare R2 endpoint.
+		// See: https://developers.cloudflare.com/r2/examples/terraform/
 		p, err := aws.NewProvider(ctx, "aws.cloudflare_r2", &aws.ProviderArgs{
-			Profile:                   pulumi.String("pulumir2"),
+			Profile:                   pulumi.String("pulumir2"), // your profile name
 			Region:                    pulumi.String("auto"),
 			SkipCredentialsValidation: pulumi.Bool(true),
 			SkipRegionValidation:      pulumi.Bool(true),
