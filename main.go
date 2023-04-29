@@ -28,6 +28,10 @@ func main() {
 		if err != nil {
 			return err
 		}
+		// Note: Use NewBucketV2 instead of NewBucket to create a bucket.
+		// because NewBucket return error:
+		// 	`S3 Bucket acceleration configuration: NotImplemented: GetBucketAccelerateConfiguration not implemented`
+		// See: https://github.com/pulumi/pulumi-aws/pull/1859
 		_, err = s3.NewBucketV2(ctx, "my-bucket", nil, pulumi.Provider(p))
 		if err != nil {
 			return err
