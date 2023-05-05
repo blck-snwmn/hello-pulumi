@@ -13,6 +13,11 @@ Default region name [None]: auto
 Default output format [None]: 
 ```
 
+# Preview
+```
+$ CF_ACCOUNT_ID=<YOUR_ACCOUNT_ID> pulumi preview 
+```
+
 # Deploy
 ```
 $ CF_ACCOUNT_ID=<YOUR_ACCOUNT_ID> pulumi up -y 
