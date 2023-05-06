@@ -17,6 +17,7 @@ require (
 	github.com/cloudflare/circl v1.1.0 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
+	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/go-git/gcfg v1.5.0 // indirect
 	github.com/go-git/go-billy/v5 v5.4.0 // indirect
 	github.com/go-git/go-git/v5 v5.6.0 // indirect
@@ -33,6 +34,7 @@ require (
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/mitchellh/go-ps v1.0.0 // indirect
+	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
@@ -60,6 +62,7 @@ require (
 	google.golang.org/genproto v0.0.0-20220802133213-ce4fa296bf78 // indirect
 	google.golang.org/grpc v1.51.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
+	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
