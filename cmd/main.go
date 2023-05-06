@@ -41,9 +41,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	case http.MethodGet:
 		getHandler(w, r)
 	case http.MethodPost:
-		postHandler(w, r)
+		executeHandler(w, r, true)
 	case http.MethodPut:
-		putHandler(w, r)
+		executeHandler(w, r, false)
 	default:
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	}
@@ -68,7 +68,7 @@ func getHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(stacks)
 }
 
-func execute(w http.ResponseWriter, r *http.Request, isNew bool) {
+func executeHandler(w http.ResponseWriter, r *http.Request, isNew bool) {
 	bucketName := r.URL.Query().Get("bn")
 	if bucketName == "" {
 		http.Error(w, "bucketName is required", http.StatusBadRequest)
@@ -111,14 +111,6 @@ func execute(w http.ResponseWriter, r *http.Request, isNew bool) {
 	}
 	json.NewEncoder(w).Encode(res.Summary)
 	return
-}
-
-func postHandler(w http.ResponseWriter, r *http.Request) {
-	execute(w, r, true)
-}
-
-func putHandler(w http.ResponseWriter, r *http.Request) {
-	execute(w, r, false)
 }
 
 func generateRunFunc(accountID, bucketName string) pulumi.RunFunc {
