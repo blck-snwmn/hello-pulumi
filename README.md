@@ -12,13 +12,33 @@ AWS Secret Access Key [None]: <Your R2 Secret Access Key>
 Default region name [None]: auto
 Default output format [None]: 
 ```
-
-# Preview
+# pulumi CLI
+## Preview
 ```
 $ CF_ACCOUNT_ID=<YOUR_ACCOUNT_ID> pulumi preview 
 ```
 
-# Deploy
+## Deploy
 ```
 $ CF_ACCOUNT_ID=<YOUR_ACCOUNT_ID> pulumi up -y 
+```
+
+# Automation API 
+## Start server
+```
+PULUMI_CONFIG_PASSPHRASE=<YOUR_PASSPHRASE> CF_ACCOUNT_ID=<YOUR_ACCOUNT_ID> go run cmd/main.go 
+```
+
+## Preview
+new: POST
+update: PUT
+```
+$ curl -X PUT "http://localhost:8080?bn=aaac&p=true"
+```
+
+## Deploy
+new: POST
+update: PUT
+```
+$ curl -X PUT "http://localhost:8080?bn=aaac"
 ```
