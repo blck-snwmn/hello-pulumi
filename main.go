@@ -42,5 +42,17 @@ func createBucket(ctx *pulumi.Context, accountID string) (*s3.BucketV2, error) {
 	// because NewBucket return error:
 	// 	`S3 Bucket acceleration configuration: NotImplemented: GetBucketAccelerateConfiguration not implemented`
 	// See: https://github.com/pulumi/pulumi-aws/pull/1859
-	return s3.NewBucketV2(ctx, "my-bucket", nil, pulumi.Provider(p))
+	return s3.NewBucketV2(ctx, "my-bucket", &s3.BucketV2Args{
+		LifecycleRules: s3.BucketV2LifecycleRuleArray{
+			s3.BucketV2LifecycleRuleArgs{
+				Enabled: pulumi.Bool(true),
+				Prefix:  pulumi.String("test/"),
+				Expirations: s3.BucketV2LifecycleRuleExpirationArray{
+					s3.BucketV2LifecycleRuleExpirationArgs{
+						Days: pulumi.Int(10),
+					},
+				},
+			},
+		},
+	}, pulumi.Provider(p))
 }
